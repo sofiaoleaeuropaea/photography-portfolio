@@ -1,7 +1,6 @@
 # Photography portfolio
 
 🚧 **Work in Progress** 🚧
-This project is currently under active development. Features are being added incrementally, and the codebase is subject to frequent updates. 
 
 ## Description
 This is an ongoing full-stack project designed to showcase my photography portfolio. 
