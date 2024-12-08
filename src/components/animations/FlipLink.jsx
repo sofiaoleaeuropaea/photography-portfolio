@@ -1,9 +1,21 @@
 import { motion } from 'framer-motion';
+import { useDesktop } from '../../utils/Hooks';
 
 const duration = 0.25;
 const stagger = 0.025;
 
 const FlipLink = ({ children, href, isActive, onClick }) => {
+  const desktopAnimation = useDesktop();
+
+  const variants = {
+    active: desktopAnimation ? { scale: 5 } : {},
+  };
+
+  const transition = {
+    duration: 0.4,
+    ease: 'easeInOut',
+  };
+
   return (
     <motion.a
       initial='initial'
@@ -11,27 +23,16 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
       animate={isActive ? 'active' : 'initial'}
       href={href}
       onClick={onClick}
-      className={`relative block overflow-hidden whitespace-nowrap text-4xl sm:text-7xl md:text-8xl lg:text-9xl`}
-      style={{
-        lineHeight: 1,
-      }}
-      variants={{
-        active: { scale: 4 },
-      }}
-      transition={{
-        duration: 0.4,
-        ease: 'easeInOut',
-      }}>
+      className={`relative inline-block overflow-hidden whitespace-nowrap sm:text-7xl md:text-8xl lg:text-9xl`}
+      style={{ lineHeight: 1 }}
+      variants={variants}
+      transition={transition}>
       <div>
         {children.split('').map((l, i) => (
           <motion.span
             variants={{
-              initial: {
-                y: 0,
-              },
-              hovered: {
-                y: '-100%',
-              },
+              initial: { y: 0 },
+              hovered: { y: '-100%' },
             }}
             transition={{
               duration: duration,
@@ -48,12 +49,8 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
         {children.split('').map((l, i) => (
           <motion.span
             variants={{
-              initial: {
-                y: '100%',
-              },
-              hovered: {
-                y: 0,
-              },
+              initial: { y: '100%' },
+              hovered: { y: 0 },
             }}
             transition={{
               duration: duration,
