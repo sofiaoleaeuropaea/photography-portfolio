@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif']
-      },
-      colors: {
-        'primary': '#000',
-        'secondary': '#242424'
-      }
+    fontSize: {
+      sm: '1rem',
+      base: '1.25rem',
+      xl: '1.563rem',
+      '2xl': '3.75rem',
+      '3xl': '6.25rem',
     },
   },
   plugins: [],
