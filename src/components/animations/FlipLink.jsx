@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import { useDesktop } from '../../utils/Hooks';
 
 const duration = 0.25;
@@ -8,11 +8,12 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
   const desktopAnimation = useDesktop();
 
   const variants = {
-    active: desktopAnimation ? { scale: 5 } : {},
+    active: desktopAnimation ? { scale: 5, margin: '1rem 6.25rem 0 6.8rem', color: 'black'} : {color: 'black'},
+    initial: { color: 'rgb(170, 170, 170, 0.7)' }
   };
 
   const transition = {
-    duration: 0.4,
+    duration: 0.8,
     ease: 'easeInOut',
   };
 
@@ -23,7 +24,7 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
       animate={isActive ? 'active' : 'initial'}
       href={href}
       onClick={onClick}
-      className={`relative inline-block overflow-hidden whitespace-nowrap sm:text-7xl md:text-8xl lg:text-9xl`}
+      className={`relative inline-block overflow-hidden whitespace-nowrap z-10`}
       style={{ lineHeight: 1 }}
       variants={variants}
       transition={transition}>
@@ -32,7 +33,7 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
           <motion.span
             variants={{
               initial: { y: 0 },
-              hovered: { y: '-100%' },
+              hovered: { y: '-100%' }
             }}
             transition={{
               duration: duration,
