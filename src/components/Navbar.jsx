@@ -40,7 +40,7 @@ const Navbar = () => {
           <ul
             className={`${
               menuMobile ? 'max-sm:animate-slideIn' : 'max-sm:animate-slideOut'
-            } flex flex-col text-3xl justify-center mt-5 sm:flex-row sm:gap-2 sm:text-sm sm:mt-2 max-sm:bg-white max-sm:py-8 max-sm:pl-6`}>
+            } flex flex-col text-3xl justify-center mt-5 sm:flex-row sm:gap-2 sm:text-base sm:mt-2 max-sm:bg-white max-sm:py-8 max-sm:pl-6`}>
             {navItems.map((navItem) => (
               <li key={navItem.id} className=''>
                 <FlipLink

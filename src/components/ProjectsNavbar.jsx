@@ -5,7 +5,7 @@ const ProjectsNavbar = () => {
   return (
     <div>
       {projects.map((project) => (
-        <h2 key={project.id} className='uppercase text-sm/7	hover-transition'>
+        <h2 key={project.id} className='uppercase text-base/7	hover-transition'>
           <Link to={project.link}>{project.title}</Link>
         </h2>
       ))}
