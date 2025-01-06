@@ -8,12 +8,17 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
   const desktopAnimation = useDesktop();
 
   const variants = {
-    active: desktopAnimation ? { scale: 5, margin: '1rem 6.25rem 0 6.8rem', color: 'black'} : {color: 'black'},
-    initial: { color: 'rgb(170, 170, 170, 0.7)' }
+    active: desktopAnimation
+      ? {
+          zoom: 5,
+          color: 'black',
+        }
+      : { color: 'black' },
+    initial: { color: 'rgb(170, 170, 170, 0.7)' },
   };
 
   const transition = {
-    duration: 0.8,
+    duration: 0.9,
     ease: 'easeInOut',
   };
 
@@ -33,7 +38,7 @@ const FlipLink = ({ children, href, isActive, onClick }) => {
           <motion.span
             variants={{
               initial: { y: 0 },
-              hovered: { y: '-100%' }
+              hovered: { y: '-100%' },
             }}
             transition={{
               duration: duration,
